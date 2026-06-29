@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -9,7 +10,7 @@ public class sortColors {
         
         int[] nums = {2,0,2,1,1,0};
 
-        System.out.println(Arrays.toString(res1(nums)));
+        System.out.println(Arrays.toString(approch2(nums)));
     }
 
     public static int[] res1(int[] nums){
@@ -24,7 +25,6 @@ public class sortColors {
             }else {
                 two++;
             }
-
         }
         int index = 0;
         while(zero != 0){
@@ -39,7 +39,27 @@ public class sortColors {
             nums[index++] = 2;
             two--;
         }
-        
         return nums ;
+    }
+    public static int[] approch2(int[] nums){
+        int n = nums.length ;
+        int l = 0 , m=l , h= n-1;
+
+        while(m <= h){
+            if(nums[m] == 0){
+                nums[m] = nums[l];
+                nums[l] = 0;
+                l++ ; m++;
+            }
+            else if(nums[m] == 1){
+                m++;
+            }else {
+                int temp = nums[m];
+                nums[m] = nums[h];
+                nums[h] = temp;
+                h--;
+            }
+        }
+        return nums;
     }
 }
