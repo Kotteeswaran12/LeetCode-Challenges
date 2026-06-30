@@ -23,6 +23,7 @@ public class twoSum {
             if((num[i] + num[j]) > T){
                 j--;
             }
+            
             else if( (num[i] + num[j]) < T){
                 i++;
             }
