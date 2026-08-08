@@ -19,11 +19,13 @@ public class CombinationSum2 {
     public static List<List<Integer>> res(int[] nums, int T){
         Arrays.sort(nums);
         List<List<Integer>> res = new ArrayList<>() ;
+        
         solution(nums,0, new ArrayList<>(), T, res);
         return  res;
     }
 
     public static void solution(int[] nums , int j  , List<Integer> L , int T , List<List<Integer>> res){
+
         if(T == 0 || j == nums.length ){
             
             res.add(new ArrayList<>(L));
